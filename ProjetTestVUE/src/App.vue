@@ -29,17 +29,15 @@ const imagesDisponibles = [citrouilleImage, arbreImage, momieImage, vampireImage
 
 // 🔹 Tirer 2 images aléatoires sans répétition
 function tirer2ImagesAleatoires() {
-  // Copier le tableau pour ne pas modifier l'original
-  const copieImages = [...imagesDisponibles] /* les 3 points = toutes les images disponibles */
-  
+
   const imagesChoisies = [] /* tableau vide pour stocker les images choisies */
 
   // On tire 2 images
   for (let i = 0; i < 2; i++) {
-    const indexAleatoire = Math.floor(Math.random() * copieImages.length) /* on génère un index aléatoire, ente 0 et 4 */
-    imagesChoisies.push(copieImages[indexAleatoire]) /* on ajoute l'image choisie au tableau */
-    copieImages.splice(indexAleatoire, 1) // on retire l'image pour ne pas la reprendre
-    console.log(copieImages) /* on affiche le tableau modifié */
+    const indexAleatoire = Math.floor(Math.random() * imagesDisponibles.length) /* on génère un index aléatoire, ente 0 et 4 */
+    imagesChoisies.push(imagesDisponibles[indexAleatoire]) /* on ajoute l'image choisie au tableau */
+    imagesDisponibles.splice(indexAleatoire, 1) // on retire l'image pour ne pas la reprendre
+    console.log(imagesDisponibles) /* on affiche le tableau modifié */
   }
 
   return imagesChoisies /* on retourne les 2 images choisies */
